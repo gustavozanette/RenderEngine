@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>	
+	<meta charset="utf-8" />
+	<title>Render Engine</title>
+
+	<style type="text/css">
+		.quad {
+			width: 100px; height: 100px;
+			position: absolute;
+			top: 10px; left: 10px;
+			background-color: black;
+		}
+		.test2 { top: 120px; }
+	</style>
+
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+	
+</head>
+ 
+<body>
+	<div class="quad test1"></div>
+	<div class="quad test2"></div>
+ 
+	<!-- footer scripts -->
+ 	<script type="text/javascript" src="RenderEngine.js"></script>
+ 	<script type="text/javascript">
+	 	$( document ).ready(function() {
+	 		var Render = new RenderEngine(),
+	 			position = 0,
+	 			position2 = 0;
+			
+			var testRender = Render.register( {
+				id: "testId",
+				update: function() {
+					console.log( '[ RENDER ] updating' );
+					$( '.test1' ).css( 'left', position );
+					position ++;
+				}
+			});
+
+			Render.register( {
+				id: "testId2",
+				update: function() {
+					console.log( '[ RENDER 2 ] updating' );
+					$( '.test2' ).css( 'left', position2 );
+					position2 ++;
+				}
+			});
+
+			//SUSPEND RENDER
+			setTimeout(function() {
+				testRender.suspend();
+			}, 1000);
+			
+			//RESUME RENDER
+			setTimeout(function() {
+				testRender.resume();
+			}, 2000);
+
+			//KILL RENDER
+			setTimeout(function() {
+				testRender.kill();
+			}, 3000);
+
+			//KILL RENDER 2
+			setTimeout(function() {
+				Render.getObjByID("testId2").kill();
+			}, 5000);
+		})
+ 	</script>
+</body>
+</html>
