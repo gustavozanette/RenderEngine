@@ -2,8 +2,8 @@ Render Engine
 ============
 
 Gerenciador de Render.
-Serve para gerenciar o que eu preciso que esteja renderizando, 
-Por exemplo algo que só renderiza enquanto está disparando o evento de scroll,
+Serve para gerenciar o que eu preciso que esteja renderizando,<br>
+Por exemplo algo que só renderiza enquanto está disparando o evento de scroll,<br>
 e outra animação fica renderizando o tempo inteiro
 
 
@@ -25,6 +25,6 @@ var testRender = Render.register( {
 Recomendação
 ============
 
-Como é utilizado o "requestFrameAnimation" eu recomendo que seja colocado algum tipo de fix.
-Paul Irish tem uma solução boa:
+Como é utilizado o "requestFrameAnimation" eu recomendo que seja colocado algum tipo de fix.<br>
+Paul Irish tem uma solução boa:<br>
 http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
