@@ -9,18 +9,18 @@ e outra animação fica renderizando o tempo inteiro
 
 Como Usar
 ============
-
+```
 //Inicia a classe
 var Render = new RenderEngine();
-//Cria um objeto para controlar a engine.
 
+//Cria um objeto para controlar a engine.
 var testRender = Render.register( {
   id: "testId",
 	update: function() {
 	  console.log( '[ RENDER ] updating' );
 	}
 });
-
+```
 
 Recomendação
 ============
